@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌻</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(#fdf6e3, #f8e7c9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.girasol {
+    position: absolute;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+.container {
+    width: 500px;
+    height: 680px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+.decor-flor {
+    position: absolute;
+    width: 180px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.flor1 {
+    top: -60px;
+    left: -60px;
+}
+
+.flor2 {
+    bottom: -60px;
+    right: -60px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.slide.active {
+    display: flex;
+}
+
+h1 {
+    color: #6b8e23;
+    font-size: 42px;
+    text-align: center;
+}
+
+.slide p {
+    text-align: center;
+    color: #5c7a2c;
+    font-size: 18px;
+}
+
+.slide img {
+    width: 460px;
+    max-width: 120%;
+    margin-top: 10px;
+}
+
+.botones {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botones button {
+    background: #8fbf5a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.carta-slide {
+    justify-content: center;
+    align-items: center;
+}
+
+.hoja-carta {
+    width: 85%;
+    max-width: 380px;
+    height: 85%;
+    background: #fffef8;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow-y: auto;
+
+    font-size: 18px;
+    line-height: 1.8;
+    color: #222;
+
+    text-align: justify;
+}
+
+.fecha {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.destinatario {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.hoja-carta p {
+    margin-bottom: 16px;
+}
+
+.despedida {
+    margin-top: 20px;
+}
+
+.firma {
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="fondo" id="fondo"></div>
+
+<div class="container">
+
+<img class="decor-flor flor1" src="https://png.pngtree.com/png-clipart/20240310/original/pngtree-yellow-flowers-watercolor-png-image_14559868.png">
+<img class="decor-flor flor2" src="https://png.pngtree.com/png-clipart/20240310/original/pngtree-yellow-flowers-watercolor-png-image_14559868.png"
+<!-- SLIDE 1 -->
+<div class="slide active">
+    <h1>For My Bombon 🩷</h1>
+    <p>A small gift for you, but with all my heart....</p>
+    <img src="flower.png">
+
+    <div class="botones">
+        <button onclick="nextSlide()">Next ➜</button>
+    </div>
+</div>
+
+<div class="slide">
+    <p>Even though the distance between the two exists,<br>you will always receive your yellow flowers, even if only on a screen. 🌻</p>
+    <img src="kitty.png" style="width: 300px; height: auto; display: block; margin: 20px auto;">
+
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+
+<div class="slide">
+    <p>Each flower is a little reminder of<br>how special and important you are to me. 💖</p>
+    <img src="imagen.png" style="width: 300px; height: auto; display: block; margin: 20px auto;">
+
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+
+<div class="slide">
+    <p>So many things to tell you........ ✨</p>
+    <img src="carta.png">
+
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="goTo(4)">Open letter💌</button>
+    </div>
+</div>
+
+<div class="slide carta-slide">
+    <div class="hoja-carta">
+
+        <div class="fecha">September 21 🌻</div>
+
+        <p class="destinatario"><strong>My love 🍓,</strong></p>
+
+<p>
+    A small gesture, but one made with all my heart.
+    I don't know if yellow flowers are given in your country.
+    I’ve felt so much for you since I met you, I’m truly so happy with every call and video call we have every day,
+    These are very special moments for me, small moments, but I truly cherish them every day; my heart is happy because of you.🫵
+</p>
+
+<p>
+    I have realized that it is precisely those simple moments that stay in the heart the most,
+    the ones you remember even when everything changes. Because it’s not about what you do, but about who you live with.🩷
+</p>
+
+<p>
+    Every memory with you is cherished as something special, as if it held a unique glow.
+    And honestly, I hope we still have many more moments to live,
+    more stories to tell and more memories to treasure over time.🥺
+</p>
+
+<p>
+    And thank you so much for these beautiful moments we shared, 
+    all those emotions, glances, and sincere feelings,
+    I am truly deeply in love with you, and it is thanks to how amazing you are,
+    I hope we build more moments and memories together, good or bad,
+    Everything feels beautiful if it's with you......
+    Te amo mucho, Mahal kitta, I love you so much, Palangga taka. 😘😘
+</p>
+
+        <p class="despedida">With much love from,</p>
+        <p class="firma"><strong>Your baby 🦊</strong></p>
+
+    </div>
+
+    <div class="botones">
+        <button onclick="goTo(0)">🏠 Main page</button>
+        <button onclick="prevSlide()">←</button>
+    </div>
+</div>
+
+</div>
+
+<script>
+    
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides[current].classList.remove("active");
+    current = index;
+    slides[current].classList.add("active");
+}
+
+function nextSlide() {
+    let next = current + 1;
+    if (next >= slides.length) next = 0;
+    showSlide(next);
+}
+
+function prevSlide() {
+    let prev = current - 1;
+    if (prev < 0) prev = slides.length - 1;
+    showSlide(prev);
+}
+
+function goTo(index) {
+    showSlide(index);
+}
+
+const fondo = document.getElementById("fondo");
+
+for (let i = 0; i < 25; i++) {
+    let flor = document.createElement("img");
+    flor.src = "https://www.pngmart.com/files/4/Sunflower-PNG-HD.png";
+    flor.className = "girasol";
+
+    flor.style.left = Math.random() * 100 + "vw";
+    flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+    flor.style.width = (25 + Math.random() * 35) + "px";
+
+    fondo.appendChild(flor);
+}
+</script>
+
+</body>
